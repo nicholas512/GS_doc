@@ -8,7 +8,7 @@ GLOBSIM: downscaling global reanalysis
 
 
     
-Installation
+Introduction
 ------------
 
     print 'hello'
@@ -19,11 +19,11 @@ Guide
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    
-   Credentials
-   Installation
    Data
+   Installation
+   Credentials
    Operation
 
 

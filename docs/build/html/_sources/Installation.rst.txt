@@ -3,8 +3,14 @@ Installation
 
 This is how you install globsim
 
+``pip install globsim``
+
 NetCDF
 ------
+
+ECMWF Client libraries
+----------------------
+
 
 ESMF / ESMPy
 ------------
