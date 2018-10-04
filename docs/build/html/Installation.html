@@ -36,16 +36,25 @@
             
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>This is how you install globsim</p>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">globsim</span></code></p>
+</div>
 <div class="section" id="netcdf">
 <h2>NetCDF<a class="headerlink" href="#netcdf" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="ecmwf-client-libraries">
 <h2>ECMWF Client libraries<a class="headerlink" href="#ecmwf-client-libraries" title="Permalink to this headline">¶</a></h2>
+<p>ECMWF is used to access ERA files. Python libraries (supporting python 2.7 and 3) to access the API are available from the <a class="reference external" href="https://confluence.ecmwf.int/display/WEBAPI/Accessing+ECMWF+data+servers+in+batch">ECMWF website</a></p>
 </div>
-<div class="section" id="esmf-esmpy">
-<h2>ESMF / ESMPy<a class="headerlink" href="#esmf-esmpy" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="esmf">
+<h2>ESMF<a class="headerlink" href="#esmf" title="Permalink to this headline">¶</a></h2>
+<p>GLOBSIM uses ESMF libraries to do efficient regridding. These libraries must be built on your machine and have additional dependencies.  ESMP versions 7.0.1 and 7.1.0r are supported. To download ESMF, consult the <a class="reference external" href="http://www.earthsystemmodeling.org/esmf_releases/public/ESMF_7_1_0r/ESMF_usrdoc/">ESMF Users Guide</a>, particularly sections 5 and 8.</p>
+<div class="section" id="esmpy">
+<h3>ESMPy<a class="headerlink" href="#esmpy" title="Permalink to this headline">¶</a></h3>
+<p>ESMPy provide python bindings for the ESMF libraries.  If you have successfully installed the ESMF libraries, you can follow the instructions <a class="reference external" href="http://www.earthsystemmodeling.org/esmf_releases/public/ESMF_7_1_0r/esmpy_doc/html/install.html#installing-esmpy">here</a> to extract the python bindings.</p>
+</div>
 </div>
 </div>
 
@@ -69,9 +78,13 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Data.html">Data</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#netcdf">NetCDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ecmwf-client-libraries">ECMWF Client libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#esmf-esmpy">ESMF / ESMPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#esmf">ESMF</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#esmpy">ESMPy</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Credentials.html">Credentials</a></li>
