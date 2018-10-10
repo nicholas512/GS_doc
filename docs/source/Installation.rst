@@ -16,6 +16,10 @@ ECMWF Client libraries
 ----------------------
 ECMWF is used to access ERA files. Python libraries (supporting python 2.7 and 3) to access the API are available from the `ECMWF website <https://confluence.ecmwf.int/display/WEBAPI/Accessing+ECMWF+data+servers+in+batch>`_
 
+Grib API and pygrib
+--------------------
+Globsim uses the `GRIB API <https://confluence.ecmwf.int/display/GRIB/What+is+GRIB-API>`_. 
+Python bindings to the GRIB API are also necessary `(pygrib) <https://jswhit.github.io/pygrib/docs/>`_. The code was tested using pygrib version 2.0.1. 
 
 ESMF
 ----
@@ -23,13 +27,53 @@ GLOBSIM uses ESMF libraries to do efficient regridding. These libraries must be 
 
 During installation, several environment variables are set::
 
-ESMF_NETCDF
-ESMF_NETCDF_LIBPATH
-ESMF_NETCDF_LIBS
-ESMF_NETCDF_INCLUDE
-ESMF_COMPILER
-ESMF_COMM
+    ESMF_NETCDF
+    ESMF_NETCDF_LIBPATH
+    ESMF_NETCDF_LIBS
+    ESMF_NETCDF_INCLUDE
+    ESMF_COMPILER
+    ESMF_COMM
 
 ESMPy
 ^^^^^^
 ESMPy provide python bindings for the ESMF libraries.  If you have successfully installed the ESMF libraries, you can follow the instructions `here <http://www.earthsystemmodeling.org/esmf_releases/public/ESMF_7_1_0r/esmpy_doc/html/install.html#installing-esmpy>`_ to extract the python bindings.  More info is available at the `ESMPy main page <https://www.earthsystemcog.org/projects/esmpy/>`_.
+
+Example
+-------
+
+The following setup was used to install on Ubuntu 16.04::
+
+
+    # GRIB API
+    apt install libgrib-api-dev
+
+    #python libraries
+    apt install python3-pip
+    pip3 install numpy
+    pip3 install nco
+    pip3 install netCDF4
+    pip3 install scipy
+    pip3 install pandas
+    pip3 install pydap
+    pip3 install python-dateutil
+    pip3 install pyproj
+    pip3 install pygrib==2.0.1  # requires grib API
+
+    # ECMWFAPI
+    pip3 install https://software.ecmwf.int/wiki/download/attachments/56664858/ecmwf-api-client-python.tgz 
+
+    ## Netcdf - C
+    apt install libnetcdf-bin
+    apt install libnetcdf-dev
+
+    ## Netcdf - Fortran
+    apt install libnetcdff-dev
+
+    ## fortran compiler
+    apt install gfortran
+
+    ## open mpi
+    apt install libopenmpi-dev
+
+    # ESMF
+    wget \"http://www.earthsystemmodeling.org/esmf_releases/public/ESMF_7_1_0r/esmf_7_1_0r_src.tar.gz\"

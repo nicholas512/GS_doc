@@ -7,31 +7,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Installation &#8212; GS_doc 0.0.1 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Credentials" href="Credentials.html" />
-    <link rel="prev" title="Data" href="Data.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
+    <link rel="prev" title="Data" href="Data.html" /> 
   </head><body>
-  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Credentials.html" title="Credentials"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Data.html" title="Data"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GS_doc 0.0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          
-
           <div class="body" role="main">
             
   <div class="section" id="installation">
@@ -39,67 +47,114 @@
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>This is how you install globsim</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">globsim</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">globsim</span></code> (eventually it will be a package)</p>
 </div>
 <div class="section" id="netcdf">
 <h2>NetCDF<a class="headerlink" href="#netcdf" title="Permalink to this headline">¶</a></h2>
+<p>NetCDF files are used to store data in a standard format. The NCO libraries must be installed and built on your computer for GLOBSIM to work.  Instructions can be found <a class="reference external" href="https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html">Here</a>.</p>
 </div>
 <div class="section" id="ecmwf-client-libraries">
 <h2>ECMWF Client libraries<a class="headerlink" href="#ecmwf-client-libraries" title="Permalink to this headline">¶</a></h2>
 <p>ECMWF is used to access ERA files. Python libraries (supporting python 2.7 and 3) to access the API are available from the <a class="reference external" href="https://confluence.ecmwf.int/display/WEBAPI/Accessing+ECMWF+data+servers+in+batch">ECMWF website</a></p>
 </div>
+<div class="section" id="grib-api-and-pygrib">
+<h2>Grib API and pygrib<a class="headerlink" href="#grib-api-and-pygrib" title="Permalink to this headline">¶</a></h2>
+<p>Globsim uses the <a class="reference external" href="https://confluence.ecmwf.int/display/GRIB/What+is+GRIB-API">GRIB API</a>.
+Python bindings to the GRIB API are also necessary <a class="reference external" href="https://jswhit.github.io/pygrib/docs/">(pygrib)</a>. The code was tested using pygrib version 2.0.1.</p>
+</div>
 <div class="section" id="esmf">
 <h2>ESMF<a class="headerlink" href="#esmf" title="Permalink to this headline">¶</a></h2>
 <p>GLOBSIM uses ESMF libraries to do efficient regridding. These libraries must be built on your machine and have additional dependencies.  ESMP versions 7.0.1 and 7.1.0r are supported. To download ESMF, consult the <a class="reference external" href="http://www.earthsystemmodeling.org/esmf_releases/public/ESMF_7_1_0r/ESMF_usrdoc/">ESMF Users Guide</a>, particularly sections 5 and 8.</p>
+<p>During installation, several environment variables are set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ESMF_NETCDF</span>
+<span class="n">ESMF_NETCDF_LIBPATH</span>
+<span class="n">ESMF_NETCDF_LIBS</span>
+<span class="n">ESMF_NETCDF_INCLUDE</span>
+<span class="n">ESMF_COMPILER</span>
+<span class="n">ESMF_COMM</span>
+</pre></div>
+</div>
 <div class="section" id="esmpy">
 <h3>ESMPy<a class="headerlink" href="#esmpy" title="Permalink to this headline">¶</a></h3>
-<p>ESMPy provide python bindings for the ESMF libraries.  If you have successfully installed the ESMF libraries, you can follow the instructions <a class="reference external" href="http://www.earthsystemmodeling.org/esmf_releases/public/ESMF_7_1_0r/esmpy_doc/html/install.html#installing-esmpy">here</a> to extract the python bindings.</p>
+<p>ESMPy provide python bindings for the ESMF libraries.  If you have successfully installed the ESMF libraries, you can follow the instructions <a class="reference external" href="http://www.earthsystemmodeling.org/esmf_releases/public/ESMF_7_1_0r/esmpy_doc/html/install.html#installing-esmpy">here</a> to extract the python bindings.  More info is available at the <a class="reference external" href="https://www.earthsystemcog.org/projects/esmpy/">ESMPy main page</a>.</p>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>The following setup was used to install on Ubuntu 16.04:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># GRIB API</span>
+<span class="n">apt</span> <span class="n">install</span> <span class="n">libgrib</span><span class="o">-</span><span class="n">api</span><span class="o">-</span><span class="n">dev</span>
+
+<span class="c1">#python libraries</span>
+<span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">numpy</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">nco</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">netCDF4</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">scipy</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">pandas</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">pydap</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">dateutil</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">pyproj</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">pygrib</span><span class="o">==</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">1</span>  <span class="c1"># requires grib API</span>
+
+<span class="c1"># ECMWFAPI</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">software</span><span class="o">.</span><span class="n">ecmwf</span><span class="o">.</span><span class="n">int</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">attachments</span><span class="o">/</span><span class="mi">56664858</span><span class="o">/</span><span class="n">ecmwf</span><span class="o">-</span><span class="n">api</span><span class="o">-</span><span class="n">client</span><span class="o">-</span><span class="n">python</span><span class="o">.</span><span class="n">tgz</span>
+
+<span class="c1">## Netcdf - C</span>
+<span class="n">apt</span> <span class="n">install</span> <span class="n">libnetcdf</span><span class="o">-</span><span class="nb">bin</span>
+<span class="n">apt</span> <span class="n">install</span> <span class="n">libnetcdf</span><span class="o">-</span><span class="n">dev</span>
+
+<span class="c1">## Netcdf - Fortran</span>
+<span class="n">apt</span> <span class="n">install</span> <span class="n">libnetcdff</span><span class="o">-</span><span class="n">dev</span>
+
+<span class="c1">## fortran compiler</span>
+<span class="n">apt</span> <span class="n">install</span> <span class="n">gfortran</span>
+
+<span class="c1">## open mpi</span>
+<span class="n">apt</span> <span class="n">install</span> <span class="n">libopenmpi</span><span class="o">-</span><span class="n">dev</span>
+
+<span class="c1"># ESMF</span>
+<span class="n">wget</span> \<span class="s2">&quot;http://www.earthsystemmodeling.org/esmf_releases/public/ESMF_7_1_0r/esmf_7_1_0r_src.tar.gz</span><span class="se">\&quot;</span>
+</pre></div>
 </div>
 </div>
 </div>
 
 
           </div>
-          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">GS_doc</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Data.html">Data</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#netcdf">NetCDF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ecmwf-client-libraries">ECMWF Client libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#esmf">ESMF</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#esmpy">ESMPy</a></li>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#netcdf">NetCDF</a></li>
+<li><a class="reference internal" href="#ecmwf-client-libraries">ECMWF Client libraries</a></li>
+<li><a class="reference internal" href="#grib-api-and-pygrib">Grib API and pygrib</a></li>
+<li><a class="reference internal" href="#esmf">ESMF</a><ul>
+<li><a class="reference internal" href="#esmpy">ESMPy</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Credentials.html">Credentials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Operation.html">Operation</a></li>
-</ul>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Data.html" title="previous chapter">Data</a></li>
-      <li>Next: <a href="Credentials.html" title="next chapter">Credentials</a></li>
-  </ul></li>
-</ul>
-</div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Data.html"
+                        title="previous chapter">Data</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Credentials.html"
+                        title="next chapter">Credentials</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Installation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <div class="searchformwrapper">
@@ -112,32 +167,28 @@
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2018, Carleton University Permafrost Research Lab.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/Installation.rst.txt"
-          rel="nofollow">Page source</a>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Credentials.html" title="Credentials"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Data.html" title="Data"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GS_doc 0.0.1 documentation</a> &#187;</li> 
+      </ul>
     </div>
-
-    
-
-    
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Carleton University Permafrost Research Lab.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
   </body>
 </html>
