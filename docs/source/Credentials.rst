@@ -27,6 +27,10 @@ The ERA-I credential should be named ``.erarc``. It can be obtained by following
 
 Where the *key* and *email* fields are specified when you sign up to the service. 
 
+ERA5
+^^^^
+The same credential will be used as for ERAI but you will also need to accept the `copernicus user agreement <http://apps.ecmwf.int/datasets/licences/copernicus/>`_.
+
 MERRA-2
 ^^^^^^^
 The MERRA credential should be named ``.merrarc``. It can be obtained from the `Earthdata website <https://wiki.earthdata.nasa.gov/display/EL/How+To+Register+With+Earthdata+Login>`_.  Once you have signed up for an account, log onto your profile `here <https://urs.earthdata.nasa.gov/home>`_. and click on applications > Approved Applications.  Click on *Approve more applications* and approve the following:
