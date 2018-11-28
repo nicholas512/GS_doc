@@ -10,7 +10,7 @@ This is how you install globsim
 
 NetCDF
 ------
-NetCDF files are used to store data in a standard format. The NCO libraries must be installed and built on your computer for GLOBSIM to work.  Instructions can be found `Here <https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html>`_. 
+NetCDF files are used to store data in a standard format. The NCO libraries must be installed and built on your computer for GLOBSIM to work.  Instructions can be found on the `Unidata website <https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html>`_. 
 
 ECMWF Client libraries
 ----------------------
@@ -78,9 +78,9 @@ The following setup was used to install on Ubuntu 16.04::
     # ESMF
     wget \"http://www.earthsystemmodeling.org/esmf_releases/public/ESMF_7_1_0r/esmf_7_1_0r_src.tar.gz\"
 
-To install ESMF, the following script was then used (again, tested on Ubuntu 16.04):
+To install ESMF, the following script was then used (again, tested on Ubuntu 16.04)::
    
-   #!/bin/bash
+    #!/bin/bash
 
     set -e
 
