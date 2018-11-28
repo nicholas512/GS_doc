@@ -77,3 +77,45 @@ The following setup was used to install on Ubuntu 16.04::
 
     # ESMF
     wget \"http://www.earthsystemmodeling.org/esmf_releases/public/ESMF_7_1_0r/esmf_7_1_0r_src.tar.gz\"
+
+To install ESMF, the following script was then used (again, tested on Ubuntu 16.04):
+   
+   #!/bin/bash
+
+    set -e
+
+    export BASE_DIR=$(pwd)
+
+    export ESMF_DIR=${BASE_DIR}/esmf
+    export ESMF_INSTALL_PREFIX=${BASE_DIR}/esmf-install
+    export ESMF_NETCDF=split
+    export ESMF_NETCDF_LIBPATH=/usr/lib/x86_64-linux-gnu/
+    export ESMF_NETCDF_LIBS="-lnetcdff -lnetcdf"
+    export ESMF_NETCDF_INCLUDE=/usr/include
+
+    export ESMF_COMPILER=gfortran
+    export ESMF_COMM=openmpi
+
+
+    tar xvf ~/esmf_7_1_0r_src.tar
+
+    cd esmf
+    make -j 12
+    make check
+
+    make install
+    # make installcheck
+
+    cd src/addon/ESMPy
+
+    # python setup.py  build --ESMFMKFILE=${ESMF_INSTALL_PREFIX}/lib/libO/Linux.gfortran.64.openmpi.default/esmf.mk
+    python setup.py  build --ESMFMKFILE=${ESMF_DIR}/lib/libO/Linux.gfortran.64.openmpi.default/esmf.mk
+    python setup.py install --prefix=${BASE_DIR}/python
+
+
+    echo "To use this vesrion of ESMPy, run:"
+    echo "  export PYTHONPATH='$BASE_DIR/python/lib/python2.7/site-packages'"
+
+
+
+
