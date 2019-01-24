@@ -1,12 +1,15 @@
 Installation
 ============
 
+This describes the steps required to get GLOBSIM up and running.  You can either install all the packages and dependencies yourself, or you can `Run GLOBSIM on a docker container`_. 
+
 Requirements
 ------------
 
-This is how you install globsim
+GLOBSIM can be obtained using the This is how you install globsim
 
 ``pip install globsim`` (eventually it will be a package)
+
 
 NetCDF
 ------
@@ -36,7 +39,7 @@ During installation, several environment variables are set::
 
 ESMPy
 ^^^^^^
-ESMPy provide python bindings for the ESMF libraries.  If you have successfully installed the ESMF libraries, you can follow the instructions `here <http://www.earthsystemmodeling.org/esmf_releases/public/ESMF_7_1_0r/esmpy_doc/html/install.html#installing-esmpy>`_ to extract the python bindings.  More info is available at the `ESMPy main page <https://www.earthsystemcog.org/projects/esmpy/>`_.
+ESMPy provides python bindings for the ESMF libraries.  If you have successfully installed the ESMF libraries, you can follow the instructions `here <http://www.earthsystemmodeling.org/esmf_releases/public/ESMF_7_1_0r/esmpy_doc/html/install.html#installing-esmpy>`_ to extract the python bindings.  More info is available at the `ESMPy main page <https://www.earthsystemcog.org/projects/esmpy/>`_.
 
 Example
 -------
@@ -101,16 +104,14 @@ To install ESMF, the following script was then used (again, tested on Ubuntu 16.
 
     cd esmf
     make -j 12
-    make check
+    # make check # (optional)
 
     make install
-    # make installcheck
+    # make installcheck # (optional)
 
     cd src/addon/ESMPy
-
-    # python setup.py  build --ESMFMKFILE=${ESMF_INSTALL_PREFIX}/lib/libO/Linux.gfortran.64.openmpi.default/esmf.mk
-    python setup.py  build --ESMFMKFILE=${ESMF_DIR}/lib/libO/Linux.gfortran.64.openmpi.default/esmf.mk
-    python setup.py install --prefix=${BASE_DIR}/python
+   
+    python setup.py  build --ESMFMKFILE=${ESMF_DIR}/lib/libO/Linux.gfortran.64.openmpi.default/esmf.mk install
 
 
     echo "To use this vesrion of ESMPy, run:"
@@ -118,4 +119,10 @@ To install ESMF, the following script was then used (again, tested on Ubuntu 16.
 
 
 
+Run GLOBSIM on a docker container 
+--------------------------------------
+Instead of going through the trouble of installing everything, you can also run GLOBSIM through a docker container.  
 
+::
+  
+    docker build /

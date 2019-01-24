@@ -1,12 +1,13 @@
+.. _credentials:
+
 Credentials
 ===========
 
 The credential files for ERA-I, MERRA2, JRA55 are usually stored under the directory on PC or user’s home directory on virtual machine (~/home/<username>). It is necessary to configure the directory containing credential files in the GLOBSIM download parameter file (e.g. examples.globsim_download).
 
-NCARUCAR4$
 JRA-55
 ^^^^^^
-"The JRA-55 credential should be named ``.jra55rc``.  The contents will depend on which data server you are accessing the data from.  It is recommended to use the NCAR/UCAR servers.
+"The JRA-55 credential should be named ``.jra55rc``.  The contents will depend on which data server you are accessing the data from.  It is recommended to use the NCAR/UCAR servers rather than the JMA servers.
 
 NCAR / UCAR
 -----------

@@ -6,14 +6,14 @@ Set-up
 
 Parameter files
 ^^^^^^^^^^^^^^^
-Three parameter files are used to control GLOBSIM. There is one for each step (download, interpolate, scale).
+Three parameter files are used to control GLOBSIM. There is one for each step in the procedure (download, interpolate, scale). The parameter files should all be in the /par subdirectory of the project directory. 
 
 
 Downloading
 --------------
-**project_directory** - 
+**project_directory** - This is the full path to the project directory which stores the downloaded files and the control files. It should include a subdirectory called /par which contains parameter files (control files) as well as a csv describing the sites to which data are scaled.
 
-**credentials_directory** - The location of the credential files `.merrarc` and `.jrarc`.  Does not apply to credential file .ecmwfapi which defaults to your home directory. It is recommended to set this parameter to your home directory
+**credentials_directory** - The location of the credential files (e.g. `.merrarc` and `.jrarc`).  Does not apply to credential file .ecmwfapi which defaults to your home directory. It is recommended to set this parameter to your home directory
 
 **chunk_size** - How many days to include in each download file.  Larger chunk size values mean that a smaller number of files will be downloaded, each with a larger size
 
@@ -25,10 +25,12 @@ Downloading
 
 **bbE** - coordinates for eastern boundary of bounding box describing the area for which data will be downloaded. Coordinates must be in decimal degrees with negative values for locations west of 0.
 
-**ele_min**
-**ele_max**
+**ele_min** - Minimum elevation that will be downloaded. Recommended to leave at 0.
+
+**ele_max** - Minimum elevation that will be downloaded. Should be at least 2500.
 
 **beg** - first date for which data is downloaded YYYY/MM/DD
+
 **end** - last date for which data is downloaded YYYY/MM/DD
 
 **variables** - which variables should be downloaded from the server. The variables names come from the `CF Standard Names table <http://cfconventions.org/Data/cf-standard-names/59/build/cf-standard-name-table.html>`_.  It is recommended that the variables parameter be left to include all relevant variables: air_temperature, relative_humidity, precipitation_amount, downwelling_longwave_flux_in_air, downwelling_longwave_flux_in_air_assuming_clear_sky, downwelling_shortwave_flux_in_air, downwelling_shortwave_flux_in_air_assuming_clear_sky,  wind_from_direction, wind_speed
@@ -38,13 +40,13 @@ checking download progress
 ---------------------------
 for JRA: https://rda.ucar.edu/#ckrqst
 
+for ERA5 (CDS api):  https://cds.climate.copernicus.eu/cdsapp#!/yourrequests
+
 Interpolating
 -------------
-**project_directory** - 
+**project_directory** - This is the full path to the project directory which stores the downloaded files and the control files. It should include a subdirectory called /par which contains parameter files (control files) as well as a csv describing the sites to which data are scaled. 
 
-**station_list** - 
-
-**list_name** - 
+**station_list** - The filename (without path) of csv containing site information such as *sitelist.csv* (note that this must match the scaling parameter file)
 
 **chunk_size** - How many time-steps to interpolate at once. This helps memory management. Keep small for large area files and/or computers with little memory. Make larger to get performance improvements on computers with lots of memory.
 
@@ -56,13 +58,15 @@ Interpolating
 
 Rescaling
 ---------
-**project_directory** - 
+**project_directory** - This is the full path to the project directory which stores the downloaded files and the control files. It should include a subdirectory called /par which contains parameter files (control files) as well as a csv describing the sites to which data are scaled.
+
+**station_list** - The filename (without path) of csv containing site information such as *sitelist.csv* (note that this must match the interpolation parameter file)
 
 **output_file** - path to output netCDF to be created. 
 
 **overwrite** - Either *True* or *False*. Whether or not to overwrite the `output_file` if it exists.
 
-**time_step** - how frequently should the output be written
+**time_step** - The desired output time step in hours
 
 **kernels** - which processing kernels should be used. Missing or misspelled kernels will be ignored by globsim.
 
