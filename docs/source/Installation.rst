@@ -1,7 +1,7 @@
 Installation
 ============
 
-This describes the steps required to get GlobSim up and running.  You can either install all the packages and dependencies yourself, or you can `Run GlobSim on a docker container`_. 
+This describes the steps required to get GlobSim up and running.  You can either install all the packages and dependencies yourself, or you can learn about :ref:`docker`. 
 
 Requirements
 ------------
