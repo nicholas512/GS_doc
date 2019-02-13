@@ -1,19 +1,25 @@
 Installation
 ============
 
-This describes the steps required to get GLOBSIM up and running.  You can either install all the packages and dependencies yourself, or you can `Run GLOBSIM on a docker container`_. 
+This describes the steps required to get GlobSim up and running.  You can either install all the packages and dependencies yourself, or you can `Run GlobSim on a docker container`_. 
 
 Requirements
 ------------
 
-GLOBSIM can be obtained using the This is how you install globsim
+GlobSim source files can be obtained in one of two ways
 
-``pip install globsim`` (eventually it will be a package)
+Using pip (not yet!!)::
 
+    pip3 install globsim 
+
+From the github source repository::
+
+    git clone https://github.com/geocryology/globsim
+    checkout working
 
 NetCDF
 ------
-NetCDF files are used to store data in a standard format. The NCO libraries must be installed and built on your computer for GLOBSIM to work.  Instructions can be found on the `Unidata website <https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html>`_. 
+NetCDF files are used to store data in a standard format. The NCO libraries must be installed and built on your computer for GlobSim to work.  Instructions can be found on the `Unidata website <https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html>`_. 
 
 ECMWF Client libraries
 ----------------------
@@ -21,7 +27,7 @@ ECMWF is used to access ERA files. Python libraries (supporting python 2.7 and 3
 
 Grib API and pygrib
 --------------------
-Globsim uses the `GRIB API <https://confluence.ecmwf.int/display/GRIB/What+is+GRIB-API>`_. 
+GlobSim uses the `GRIB API <https://confluence.ecmwf.int/display/GRIB/What+is+GRIB-API>`_. 
 Python bindings to the GRIB API are also necessary `(pygrib) <https://jswhit.github.io/pygrib/docs/>`_. The code was tested using pygrib version 2.0.1. 
 
 ESMF
@@ -61,6 +67,7 @@ The following setup was used to install on Ubuntu 16.04::
     pip3 install python-dateutil
     pip3 install pyproj
     pip3 install pygrib==2.0.1  # requires grib API
+    pip3 install lxml
 
     # ECMWFAPI
     pip3 install https://software.ecmwf.int/wiki/download/attachments/56664858/ecmwf-api-client-python.tgz 
@@ -114,15 +121,7 @@ To install ESMF, the following script was then used (again, tested on Ubuntu 16.
     python setup.py  build --ESMFMKFILE=${ESMF_DIR}/lib/libO/Linux.gfortran.64.openmpi.default/esmf.mk install
 
 
-    echo "To use this vesrion of ESMPy, run:"
+    echo "To use this version of ESMPy, run:"
     echo "  export PYTHONPATH='$BASE_DIR/python/lib/python2.7/site-packages'"
 
 
-
-Run GLOBSIM on a docker container 
---------------------------------------
-Instead of going through the trouble of installing everything, you can also run GLOBSIM through a docker container.  
-
-::
-  
-    docker build /

@@ -16,7 +16,6 @@ To `access JRA <https://rda.ucar.edu/datasets/ds628.4/#!access>`_ using the NCAR
 You will need an eligible email to access restricted data collections such as the JRA55.  If you did not sign up with an email from an eligible institution, you will need to edit your profile to include your institutional email (usually a university account will work) and follow the verification link that is sent to your institutional account.
 Next, in your profile, authorize the JRA-55 reanalysis and click 'update profile'
 
-
 The old way to access the data is to get it from the Japan Meteorological Agency servers. Credentials for these servers can be obtained from `The JRA Website <http://jra.kishou.go.jp/JRA-55/index_en.html#application>`_. by signing up for an account.  Once you have signed up, you will recieve an email with your UID and password"
 "Your credential should be a text file named ``.jrarc`` with two lines as follows::
 
@@ -39,6 +38,9 @@ Where the *key* and *email* fields are specified when you sign up to the service
 
 ERA5
 ^^^^
+As of February 2019, the ECMWF servers can no longer be used to download ERA5 data. Instead, the copernicus climate data store (CDS) servers are used. 
+
+
 The same credential will be used as for ERAI but you will also need to accept the `copernicus user agreement <http://apps.ecmwf.int/datasets/licences/copernicus/>`_.
 
 MERRA-2

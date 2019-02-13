@@ -14,7 +14,7 @@ Tutorial
 
 Create directory structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-You can skip this step if you're using the example directory provided in the GLOBSIM. 
+You can skip this step if you're using the example directory provided in the GLOBSIM package. 
 
 Create the following directory structure::
 
